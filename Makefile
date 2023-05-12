@@ -14,7 +14,8 @@ BUILD		:= 	build
 INCLUDES	:= 	includes \
 				/opt/devkitpro/libctru/include
 SOURCES 	:= 	sources \
-				sources/ctrulib_extension/system
+				sources/ctrulib_extension/system \
+				sources/graphics/
 
 #---------------------------------------------------------------------------------
 # options for code generation

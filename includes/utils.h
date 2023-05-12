@@ -6,3 +6,5 @@
 #define PA_PTR(addr)            (void *)((u32)(addr) | 1 << 31)
 
 #define REG32(addr)             (*(vu32 *)(PA_PTR(addr)))
+
+void     Flash(u32 color);

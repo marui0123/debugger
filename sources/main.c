@@ -2,7 +2,6 @@
 #include "csvc.h"
 #include "plginit.h"
 
-
 // Threads stacks
 static u8   threadMainStack[0x1000] ALIGN(8);
 Handle      threadMainHandle;

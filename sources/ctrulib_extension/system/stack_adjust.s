@@ -6,6 +6,7 @@ BEGIN_ASM_FUNC initSystem, weak
 	str	lr, [r2,#4]
 
 	bl	__libctru_init
+    bl  __appInit
 	bl	__libc_init_array
 
 	ldr	r2, =saved_stack
@@ -15,6 +16,7 @@ END_ASM_FUNC
 
 BEGIN_ASM_FUNC __ctru_exit, weak
 	bl	__libc_fini_array
+    bl	__appExit
 
 	ldr	r2, =saved_stack
 	ldr	sp, [r2]

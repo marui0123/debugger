@@ -33,8 +33,12 @@ BEGIN_ASM_FUNC startup, local
     sub     r1, r1, r0
     bl      ClearMem
 
+    @ System initialization
+	mov     r0, r4
+	bl      initSystem
+
     @ Jump to plugin init code
-    ldr     R0, [SP]
+    ldr     r0, [sp]
     bl      main
 
     @ Jump back to plugin loader hook
@@ -55,7 +59,11 @@ BEGIN_ASM_FUNC ClearMem, local
     bxeq    lr         @ Quit if copy size is 0
 
     mov     r2, #0
-ClrLoop:
+
+    b       ClrLoop
+END_ASM_FUNC
+
+BEGIN_ASM_FUNC ClrLoop, local
     stmia   r0!, {r2}
     subs    r1, r1, #4
     bne     ClrLoop
